@@ -11,7 +11,6 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.List;
 
 public class ResourcePackBuilder {
@@ -52,7 +51,7 @@ public class ResourcePackBuilder {
         File modelFile = new File(modelsItem, model.modelName() + ".json");
         writeToFile(modelFile, model.outputJson());
         File texturesFile = new File(texturesItem, model.modelName() + ".png");
-        writeToFile(texturesFile, Base64.getDecoder().decode(model.base64Texture()));
+        writeToFile(texturesFile, model.base64Bytes());
         modelNames.add(model.modelName());
     }
 
